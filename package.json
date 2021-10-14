@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/env-cmd -f ./config/test.env jest --watch --runInBand",
     "dev": "./node_modules/.bin/env-cmd -f ./config/dev.env nodemon src/index.js -e hbs,js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,8 @@
     "validator": "^13.6.0"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "jest": "^27.2.5",
+    "supertest": "^6.1.6"
   }
 }
